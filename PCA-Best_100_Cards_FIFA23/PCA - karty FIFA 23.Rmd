@@ -1,0 +1,314 @@
+---
+title: "PCA - karty w grze FIFA 23"
+author: "Marcin Mika"
+date: "2024-01-19"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE)
+```
+
+```{r, warning = FALSE, result = 'hide'}
+library(gridExtra)
+library(psych)
+library(factoextra)
+library(ggplot2)
+library(dplyr)
+library(kableExtra)
+library(stats)
+library(corrplot)
+```
+
+## Wstęp
+
+W dzisiejszym świecie gier komputerowych, jednym z najbardziej
+popularnych gatunków są gry sportowe, a wśród nich szczególne miejsce
+zajmuje seria FIFA (najnowsza odsłona gry nazywa się FC 24), rozwijana
+przez Electronic Arts. Gra FIFA 23 dostarcza pasjonatom piłki nożnej nie
+tylko emocjonujących rozgrywek, ale także fascynujących elementów takich
+jak "karty zawodników". Karty te stanowią ważny element rozgrywki,
+umożliwiając graczom budowę i dostosowywanie swoich drużyn. W niniejszej
+pracy skoncentruję się na wykorzystaniu analizy składowych głównych
+(PCA) do zrozumienia i przedstawienia różnorodności kart zawodników w
+grze FIFA 23.
+
+## Cel pracy
+
+Poprzez zastosowanie PCA, planuję zredukować wymiarowość danych
+dotyczących kart, jednocześnie utrzymując istotne informacje, co pozwoli
+na bardziej klarowne przedstawienie różnic między poszczególnymi
+kartami. Analiza ta ma na celu dostarczenie głębszego zrozumienia
+różnorodności kart zawodników w grze.
+
+## Opis danych
+
+Zestaw danych zawiera 100 obserwacji - 100 najlepszych kart bazowych pod
+względem umiejętności ogólnych w FIFA 23. Zestaw danych zawiera
+następujące atrybuty dla każdego gracza: <br>
+
+Tempo (Pace): Ocenia szybkość gracza. <br> Strzelanie (Shooting):
+Umiejętności związane ze strzelaniem do bramki. <br> Podawanie
+(Passing): Umiejętności związane z podawaniem piłki. <br> Drybling
+(Dribbling): Zdolności związane z kontrolą piłki podczas dryblingu. <br>
+Obrona (Defending): Ocenia zdolności defensywne gracza. <br> Siła
+Fizyczna (Physicality): Odnosi się do siły fizycznej i wytrzymałości
+gracza. <br><br>
+Dane pochodzą z:<br>
+https://www.kaggle.com/datasets/mohammedessam97/fifa-23-fut-players-dataset
+
+```{r}
+data <- read.csv('C:\\Users\\Marcin\\Desktop\\5 semestr\\SAD\\Nowy folder\\futbin_players.csv', sep=";")
+my_data<- data[,c(1,9:14)]
+my_data
+```
+
+## Wstępna analiza danych
+
+```{r}
+data_num <- my_data[,-1]
+boxplot(data_num, outline = TRUE)
+```
+
+```{r}
+summary_table <- summary(data_num)
+kable(summary_table, format = "html", caption = "Podsumowanie statystyczne") %>%
+  kable_styling()
+```
+
+Największe rozproszenie widać u zmiennej "obrona" (defending), gdzie
+zakres wynosi od 27 do 91(niektórzy bardzo dobrzy gracze ofensywni nie
+potrafią w ogóle bronić, a najlepsi obrońcy robiąto znakomicie). Wykres
+i dane sugerują leweostronną asymetrie rozkładu dla zmiennych:
+"shooting"(defensywni zawodnicy zazwyczaj nie umieją dobtrze strzelać -
+przynajmniej według tej gry), "pace", "dribbling". Istnieją wartości odstające - a PCA ich "nie lubi", jednak zdecyduje się je zostawić do dalszej analizy.
+
+## Opis metody PCA
+
+Analiza głównych składowych (PCA, Principal Component Analysis) to metoda statystyczna używana do redukcji wymiarowości danych poprzez transformację oryginalnych zmiennych na nowy zestaw zmiennych, zwanych głównymi składowymi. Główne składowe są liniowymi kombinacjami oryginalnych zmiennych, które są uporządkowane według malejącej wariancji, co pozwala na skoncentrowanie się na najważniejszych informacjach w danych. PCA jest często stosowane w celu wizualizacji danych, eliminacji współliniowości między zmiennymi oraz redukcji szumu, co ułatwia analizę i zrozumienie struktury danych.
+
+## Macierz kowariancji
+Założeniem PCA jest to, że zmienne muszą być skorelowane (lub z wysoką kowariancją)
+Wszystkie zmienne są w tej samej skali (punkty od 0 do 100), więc nie
+standaryzuje danych, tylko od razu przechodzę do wyznaczenia macierzy
+kowariancji (sprawdziłem, że przy standaryzacji wyniki się pogarszają - co jest logiczne, "tracimy" zmienność)
+
+```{r}
+cov_matrix <- cov(data_num)
+data.frame(cov_matrix)
+```
+
+<br>Na pierwszy rzut oka, widać, że zmienna "passing" oraz zmienna opisująca siłę fizyczną ma
+najmniejszą kowariancję z pozostałymi zmiennymi. Może to wynikać z
+faktu, że istnieją karty zawodników ofensywnych bardzo słabych w tym
+aspekcie, którzy mają inne atuty (są niscy i bazują głównie na szybkości
+i dryblingu, np. karta Paulo Dybali), ale zdarzają się również szybcy i
+dobrze zbudowani napastnicy (np. karta Erlinga Haalanda).Najbardziej
+siła fizyczna jest powiązana z zmienna określającą umiejętności
+bronienia, ponieważ obrońcy zazwyczaj muszą być silni np. (Virgil van
+Dijk).
+
+```{r}
+ choosen_cards<- my_data %>%
+  filter(name %in% c("Virgil van Dijk", "Erling Haaland", "Paulo Dybala"))
+choosen_cards
+```
+
+<br>Widać ze wraz z wzrostem umiejętności bronienia maleje szybkość
+zawodnika (obrońcy z reguły są wolniejsi od graczy ofensywnych w tej
+grze), umiejętność strzelania i dryblingu. 
+
+## Test Bartletta 
+Nie mogłem znalezć testów na zależności między zmiennymi dotyczącie macierzy
+kowariancji, dlatego przetestuje macierz korelacji z
+niesetandaryzowanymi zmiennymi.
+
+```{r}
+corr_ma <- cor(data_num)
+corrplot(corr_ma)
+
+```
+<br>Hipotezy:<br> 
+H0: Sferyczność macierzy korelacji (brak współzależności między zmiennymi)<br> 
+H1: Brak sferyczności macierzy korelacji
+```{r}
+names <- c("chi kwadrat", "p-value", "stopnie swobody")
+bartlett_corr_test <- cortest.bartlett(corr_ma, n=100)
+scores <- data.frame(
+  Statystyka = c("Chi-kwadrat", "P-value", "Stopnie swobody"),
+  Wartość = c(bartlett_corr_test$chisq, bartlett_corr_test$p.value, bartlett_corr_test$df)
+)
+kable(scores, format = "html", align = "c") %>%
+  kable_styling(full_width = FALSE)
+```
+
+P-value jest bardzo bliskie 0, więc odrzucam hipoteze zerową o braku
+współzależności między zmiennymi i mogę przystąpić do następnego kroku.
+
+## Wartości własne
+
+Wartości własne są liczbami, które charakteryzują, jak bardzo dane są
+rozproszone wzdłuż osi składowych głównych. Im większa wartość własna,
+tym większą wariancję wyjaśnia odpowiadająca jej składowa główna
+
+```{r}
+pca <- prcomp(data_num, center = TRUE)
+sum_pca <- summary(pca)
+df_pca <- data.frame(Składowa_Główna = 1:6,
+                     Odchylenie_Standardowe = sum_pca$sdev^2,
+                     Proporcja_Wariancji = sum_pca$sdev^2 / sum(sum_pca$sdev^2),
+                     Skumulowana_Proporcja = cumsum(sum_pca$sdev^2 / sum(sum_pca$sdev^2)))
+
+kable(df_pca, format = "html", align = "c") %>%
+  kable_styling(full_width = FALSE)
+
+```
+
+Proporcje wariancji mówią nam, jaki procent całkowitej wariancji danych
+jest wyjaśniany przez każdą składową główną. PC1 wyjaśnia najwięcej
+wariancji (65.54%), a kolejne składowe wyjaśniają mniejsze procenty.
+<br> Skumulowane proporcje wariancji pokazują, ile całkowitej wariancji
+zostało wyjaśnione przez daną składową główną wraz z poprzednimi
+składowymi. Na przykład, PC1 i PC2 razem wyjaśniają 79.33% wariancji.
+Oznacza to, że użycie tych dwóch składowych jest satysfakcjonujące, bo
+wynosi prawie 80%.
+
+## Test Catella (test osypiska)
+
+Na wykresie wartości własnych należy znaleźć miejsce, od którego na
+prawo występuje łagodny spadek wartości własnych (tzw. „osypisko
+czynnikowe").
+
+```{r}
+fviz_eig(pca)
+```
+
+<br>Od drugiej składowej (PC2) w dół zauważalny jest łagodniejszy
+spadek, co sugeruje, że te kolejne składowe wniosą znacznie mniej do
+wyjaśnienia wariancji. Aby wykres był bardziej czytelny (dwuwymiarowy),
+zdecyduję się na 2 składowe główne (wyjaśniają ponad 79% wariancji).
+<br> 
+
+## Wektory własne 
+
+Wektor własny odzwierciedla wpływ poszczególnych
+zmiennych pierwotnych na daną składową główną. Są one kierunkami, wzdłuż
+których występuje największa wariancja danych.Kierunek danego wektora
+własnego wskazuje, w jaki sposób dane są skorelowane wzdłuż
+odpowiadającej mu składowej głównej.
+
+```{r}
+rotation <- pca$rotation
+df_rotation <- data.frame(PC1 = rotation[, 1],
+                          PC2 = rotation[, 2],
+                          PC3 = rotation[, 3],
+                          PC4 = rotation[, 4],
+                          PC5 = rotation[, 5],
+                          PC6 = rotation[, 6])
+df_rotation
+```
+
+## Wykresy udziałów:
+
+```{r, fig.width = 10}
+var_contrib_pc1 <- fviz_contrib(pca, choice = "var", axes=1)
+var_contrib_pc2 <- fviz_contrib(pca, choice = "var", axes=2)
+var_contrib_pc3 <- fviz_contrib(pca, choice = "var", axes=3)
+grid.arrange(var_contrib_pc1, var_contrib_pc2, var_contrib_pc3, ncol = 3)
+```
+
+PC1 ma największy udział w wyjaśnianiu zmiennych: defending oraz
+shooting (umiejętności gry w obronie oraz strzelania). Najbardziej
+opisuje zróżnicowanie tych zmiennych<br> PC2 ma największy udział w
+wyjaśnianiu zmiennych: pace, passing oraz shooting (szybkość, podania i
+stzrały). Najbardziej opisuje zróżnicowanie tych zmiennych <br> PC3
+głównie "reprezentuje" graczy silnych fizycznie, opisuje jej
+zróżnicowanie <br>
+
+```{r}
+var_contrib_pc1_2 <- fviz_contrib(pca, choice = "var", axes=1:2)
+var_contrib_pc1_2_3 <- fviz_contrib(pca, choice = "var", axes=1:3)
+grid.arrange(var_contrib_pc1_2, var_contrib_pc1_2_3)
+```
+
+<br>Można zauważyć, że nie ma dużej różnicy między wykresem
+przedstawiającym udział w wyjaśnianiu wariancji dwóch głównych
+składowych (PC1 i PC2), a trzech (PC1, PC2 i PC3). Zmienna opisująca
+wytrzymalość fizyczną zyskała najwięcej (PC3 głównie opisuje jej
+zróżnicowanie), jednak dalej wkład jest poniżej średniej.
+
+## Ładunki czynnikowe
+
+Są to wartości obrazujące jaką część wariancji danej składowej stanowią
+zmienne pierwotne.
+
+```{r}
+correlation <- cor(data_num, pca$x[, 1:3])
+df_correlation <- data.frame(Korelacja_PC1 = correlation[, 1], Korelacja_PC2 = correlation[, 2], Korelacja_PC3 = correlation[,3])
+df_correlation
+```
+
+Wysokie korelacje miedzy zmienną a składową głowną, oznaczają, że
+zmienność danej zmiennej może być dobrze przez nią (składową)
+odzwierciedlana.<br> PC1: strzały, drybling, umiejętności gry w obronie
+<br> PC2: podania, strzały <br> PC3: fizyczność <br>
+
+## Wykres ładunków czynnikowych
+
+```{r}
+fviz_pca_var(pca)
+```
+
+Po wykresie ładunków czynnikowych widać, że wraz z wzrostem umiejętności
+dryblingu wzrasta umiejętność strzelania i maleje siła fizyczna.
+Szybkość nie jest skorelowana z siłą fizyczną, strzałami i dryblingiem
+(kąt prosty). 
+
+## Wartości składowych dla obserwacji - przekstzałcone dane
+
+Głównie interesują mnie wartości PC1 i PC2, ponieważ na ich bazie
+powstanie biplot
+
+```{r}
+data.frame(Nazwy = my_data[,1], pca$x)
+
+```
+
+## Wykres biplot
+
+```{r, biplot-chunk, fig.width=15, fig.height=15}
+biplot(pca, scale=0, xlabs=my_data[,1], xlim=c(-40,60), ylim=c(-30,30))
+abline(h=0, v=0, col="gray") 
+
+variance_explained <- pca$sdev^2 / sum(pca$sdev^2)
+variance_table <- data.frame(PC1 = variance_explained[1],
+                             PC2 = variance_explained[2])
+variance_table
+```
+
+Karty umiejscowione w kierunku wektora "pace" mają wyższe oceny w tej
+kategorii, podczas gdy ci dalej od tego wektora mają niższe. Podobnie,
+karty piłkarzy bliżej wektora "shooting" prawdopodobnie mają lepsze
+umiejętności strzeleckie. <br> Kevin De Bruyne jest umieszczony
+blisko wektora "passing", co sugeruje, że ma on wysokie umiejętności w
+tej kategorii. Natomiast gracze umiejscowieni w kierunku "defending"
+prawdopodobnie mają silniejsze zdolności obronne - co zgadza się z
+nazwiskami (są to obrońcy). 
+
+## Porównanie z klasycznym skalowaniem wielowymiarowym
+
+```{r, fig.width=15, fig.height=15}
+d2 <- cmdscale(dist(scale(data_num)), eig = TRUE)
+plot(d2$points[, 1], d2$points[, 2], xlab = "Wymiar 1", ylab = "Wymiar 2", main = "Skalowanie wielowymiarowe")
+text(d2$points[, 1], d2$points[, 2], labels = data[,1], pos =1)
+
+```
+
+Można zobaczyć, że wyniki są bardzo zbliżone. Różnice mogą wynikać z faktu standaryzacji danych. Bez niej, wyniki były jeszcze bardziej podobne.
+
+## Podsumowanie 
+W projekcie PCA dotyczącym kart piłkarskich w grze FIFA przeprowadziłem analizę składowych głównych
+(PCA).Analiza ta pozwoliła na redukcję wymiarowości danych i wyodrębnienie głównych składowych.

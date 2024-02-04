@@ -1,0 +1,101 @@
+name;rating;position;version;price;skills;weak_foot;work_rate;pace;shooting;passing;dribbling;defending;physicality;height;base_stats;in_game_stats
+Karim Benzema;91;CF,ST;Normal;64K;4;4;M \ M;80;88;83;87;39;78;"185cm | 6'1""";3707;455
+Robert Lewandowski;91;ST,CF;Normal;64K;4;4;H \ M;75;91;79;86;44;83;"185cm | 6'1""";1161;458
+Kylian Mbappé;91;ST,CF,LW;Normal;578K;5;4;H \ L;97;89;80;92;36;76;"182cm | 6'0""";-603;470
+Kevin De Bruyne;91;CM,CAM;Normal;64K;4;5;H \ H;74;88;93;87;64;77;"181cm | 5'11""";2113;483
+Lionel Messi;91;RW,RM;Normal;65K;4;4;L \ L;81;89;90;94;34;64;"169cm | 5'7""";3320;452
+Mohamed Salah;90;RW,RM;Normal;54K;4;3;H \ M;90;89;82;90;45;75;"175cm | 5'9""";1535;471
+Virgil van Dijk;90;CB;Normal;57K;2;3;M \ H;81;60;71;72;91;86;"193cm | 6'4""";4069;461
+Cristiano Ronaldo;90;ST,CF;Normal;58K;5;4;H \ L;81;92;78;85;34;75;"187cm | 6'2""";6417;445
+Thibaut Courtois;90;GK;Normal;52.5K;1;3;M \ M;84;89;75;90;46;89;"199cm | 6'6""";1220;473
+Manuel Neuer;90;GK;Normal;54K;1;4;M \ M;87;88;91;88;56;91;"193cm | 6'4""";647;501
+Neymar Jr;89;LW,LM;Normal;41K;5;5;H \ M;87;83;85;93;37;61;"175cm | 5'9""";3726;446
+Heung Min Son;89;LW,LM;Normal;40.75K;4;5;H \ M;88;89;82;86;42;69;"183cm | 6'0""";1893;456
+Sadio Mané;89;LM,CF,LW;Normal;40K;4;4;H \ M;90;83;80;88;44;77;"174cm | 5'9""";1389;462
+Joshua Kimmich;89;CDM,RB;Normal;40K;3;4;H \ M;68;72;87;84;83;79;"177cm | 5'10""";317;473
+Casemiro;89;CDM;Normal;40K;2;3;M \ H;63;73;75;72;87;90;"185cm | 6'1""";723;460
+Alisson;89;GK;Normal;40.5K;1;3;M \ M;86;85;85;89;54;90;"191cm | 6'3""";672;489
+Harry Kane;89;ST,CF;Normal;40K;3;5;H \ H;68;91;83;82;47;82;"188cm | 6'2""";567;453
+Ederson;89;GK;Normal;40K;1;3;M \ M;87;82;93;88;64;88;"188cm | 6'2""";496;502
+N'Golo Kanté;89;CDM,CM;Normal;40.5K;2;3;M \ H;72;66;74;81;87;82;"168cm | 5'6""";1787;462
+Jan Oblak;89;GK;Normal;40.75K;1;3;M \ M;86;90;78;89;49;87;"188cm | 6'2""";167;479
+Erling Haaland;88;ST,CF;Normal;28.75K;3;3;H \ M;89;91;65;80;49;87;"195cm | 6'5""";6146;461
+Toni Kroos;88;CM;Normal;28.75K;3;5;M \ M;53;81;90;81;71;68;"183cm | 6'0""";369;444
+Marquinhos;88;CB;Normal;29K;3;3;M \ H;79;56;75;74;89;80;"183cm | 6'0""";908;453
+Keylor Navas;88;GK;Normal;31.5K;1;3;M \ M;89;84;75;89;54;87;"185cm | 6'1""";207;478
+David De Gea;87;GK;Normal;21K;1;3;M \ M;88;80;76;89;51;84;"192cm | 6'4""";702;468
+Hugo Lloris;87;GK;Normal;21K;1;1;M \ M;88;83;74;88;61;84;"188cm | 6'2""";237;478
+Trent Alexander-Arnold;87;RB,RWB;Normal;20.5K;3;4;H \ M;76;69;89;80;80;73;"180cm | 5'11""";36;467
+Kalidou Koulibaly;87;CB;Normal;22K;2;4;M \ H;82;33;59;68;88;85;"187cm | 6'2""";1676;415
+Andrew Robertson;87;LB,LWB;Normal;21.5K;3;2;H \ H;80;61;81;81;82;76;"178cm | 5'10""";289;461
+Fabinho;87;CDM,CB;Normal;21.5K;3;2;M \ H;66;69;78;77;86;83;"188cm | 6'2""";280;459
+Frenkie de Jong;87;CM;Normal;21.5K;4;3;H \ M;82;69;86;87;77;78;"180cm | 5'11""";1761;479
+Thomas Müller;87;CAM,CF;Normal;20.75K;3;4;H \ H;69;84;83;80;56;71;"185cm | 6'1""";133;443
+Leon Goretzka;87;CM,CDM;Normal;21.5K;3;4;H \ M;78;82;82;83;81;86;"189cm | 6'2""";1138;492
+Marco Verratti;87;CM,CAM;Normal;20.5K;4;4;M \ H;60;61;87;91;79;66;"165cm | 5'5""";136;444
+Mike Maignan;87;GK;Normal;21K;1;4;M \ M;85;82;85;89;51;85;"191cm | 6'3""";1118;477
+Thiago;86;CM;Normal;17.25K;5;3;M \ M;61;72;87;90;72;69;"174cm | 5'9""";217;451
+Wojciech Szczesny;86;GK;Normal;17K;1;3;M \ M;86;81;73;87;49;86;"195cm | 6'5""";258;462
+Parejo;86;CM;Normal;17K;3;4;M \ M;50;83;90;80;71;68;"182cm | 6'0""";-13;442
+Kingsley Coman;86;LM,LW;Normal;17K;5;3;M \ M;92;77;79;87;30;62;"179cm | 5'10""";735;427
+Kevin Trapp;86;GK;Normal;16.5K;1;4;M \ M;84;82;79;87;46;85;"189cm | 6'2""";167;463
+Christopher Nkunku;86;CF,CAM,ST;Normal;17K;5;3;H \ M;88;81;83;88;65;66;"175cm | 5'9""";2447;471
+Ciro Immobile;86;ST,CF;Normal;17K;3;4;H \ M;85;87;68;80;39;75;"185cm | 6'1""";137;434
+Sergej Milinkovic-Savic;86;CM;Normal;16.5K;4;5;H \ M;68;80;82;82;79;86;"191cm | 6'3""";114;477
+Paulo Dybala;86;CF,CAM,ST;Normal;16.75K;4;3;H \ L;80;85;85;90;40;59;"177cm | 5'10""";647;439
+Bruno Fernandes;86;CAM,CM;Normal;16.75K;4;3;H \ H;72;86;88;81;67;76;"179cm | 5'10""";429;470
+Iker Bravo Solanilla;86;ST,RM,CF;Normal;19.25K;4;4;H \ M;89;87;77;85;40;79;"182cm | 6'0""";232;457
+Pedri;85;CM;Normal;16K;4;4;H \ H;79;67;81;87;68;73;"174cm | 5'9""";482;455
+Diogo Jota;85;CF,ST,LW;Normal;16K;4;5;H \ H;85;83;75;85;57;77;"178cm | 5'10""";1303;462
+Marcos Acuña;85;LB,LWB;Normal;15.75K;3;3;H \ H;76;74;83;87;80;83;"172cm | 5'8""";152;483
+Sergio Busquets;85;CDM;Normal;16.75K;3;3;M \ M;42;62;79;79;82;73;"189cm | 6'2""";-66;417
+Nabil Fekir;85;CAM;Normal;16K;4;4;H \ M;83;82;82;87;38;80;"173cm | 5'8""";942;452
+Memphis Depay;85;CF,ST,LW;Normal;19K;5;3;H \ L;83;84;82;86;30;79;"176cm | 5'9""";1253;444
+Iago Aspas;85;ST,CF;Normal;20.5K;3;4;H \ H;82;85;79;86;35;63;"176cm | 5'9""";127;430
+Gerard Moreno;85;ST,CF;Normal;15.75K;3;4;H \ M;78;86;77;83;46;72;"180cm | 5'11""";53;442
+Jordi Alba Ramos;85;LB,LWB;Normal;16K;3;3;H \ M;84;70;82;82;77;70;"170cm | 5'7""";315;465
+Péter Gulácsi;85;GK;Normal;16K;1;2;M \ M;85;84;76;85;43;83;"191cm | 6'3""";69;456
+Matthijs de Ligt;85;CB;Normal;15.5K;2;3;M \ H;75;59;61;69;84;87;"189cm | 6'2""";322;435
+Yann Sommer;85;GK;Normal;19.5K;1;4;M \ M;78;81;82;90;50;86;"183cm | 6'0""";80;467
+Niklas Süle;85;CB,RB;Normal;16K;3;3;M \ M;71;48;66;59;85;83;"195cm | 6'5""";16;412
+Patrik Schick;85;ST,CF;Normal;15.5K;4;3;H \ M;78;83;71;83;36;76;"191cm | 6'3""";86;427
+Serge Gnabry;85;RM,RW;Normal;15.75K;4;4;H \ M;82;84;79;85;43;69;"176cm | 5'9""";147;442
+Paul Pogba;85;CM,CDM,LM;Normal;15.5K;5;4;M \ L;67;80;85;85;62;80;"191cm | 6'3""";395;459
+Filip Kostić;85;LM,LWB,LW;Normal;15.75K;3;2;H \ H;84;78;82;82;68;80;"184cm | 6'0""";111;474
+Dušan Vlahović;84;ST,CF;Normal;6.7K;3;3;M \ M;80;85;66;78;28;79;"190cm | 6'3""";157;416
+Alphonso Davies;84;LB,LWB,LM;Normal;7.3K;4;4;H \ L;94;66;77;85;76;77;"185cm | 6'1""";1113;475
+Joel Matip;84;CB;Normal;6.9K;2;2;M \ M;61;46;69;71;87;78;"194cm | 6'4""";93;412
+Leonardo Bonucci;84;CB;Normal;6.6K;2;4;M \ H;54;59;69;71;85;78;"190cm | 6'3""";37;416
+Ángel Di María;84;RW,RM;Normal;6.7K;5;2;H \ M;79;79;84;87;48;67;"180cm | 5'11""";168;444
+Federico Chiesa;84;LW,LM;Normal;6.9K;4;4;H \ M;91;81;76;86;48;73;"175cm | 5'9""";786;455
+Jules Koundé;84;CB;Normal;7K;2;3;H \ H;84;45;64;74;85;78;"181cm | 5'11""";1973;430
+Yassine Bounou;84;GK;Normal;6.6K;1;2;M \ M;84;81;76;86;36;84;"192cm | 6'4""";503;447
+Stefan Savić;84;CB;Normal;6.8K;2;3;M \ H;64;35;58;58;87;80;"187cm | 6'2""";12;382
+Moussa Diaby;84;RM,LM,RW,LW;Normal;6.8K;4;3;H \ L;93;73;75;87;42;59;"170cm | 5'7""";815;429
+Leroy Sané;84;LM,LW;Normal;6.7K;4;2;M \ M;88;81;80;85;38;66;"183cm | 6'0""";350;438
+Koen Casteels;84;GK;Normal;6.9K;1;2;M \ M;84;82;79;86;45;84;"197cm | 6'6""";31;460
+Lucas Hernández;84;CB,LB;Normal;6.7K;2;2;M \ M;77;54;70;71;84;80;"184cm | 6'0""";273;436
+Dušan Tadić;84;LW,LM,CAM,CF;Normal;6.5K;4;3;M \ M;68;81;86;84;43;77;"181cm | 5'11""";4;439
+Jadon Sancho;84;LW,LM,RW;Normal;6.7K;5;3;H \ M;81;74;81;89;36;59;"180cm | 5'11""";330;420
+Martin Ødegaard;84;CAM,CM;Normal;6.7K;5;2;H \ M;76;75;86;84;58;63;"178cm | 5'10""";305;442
+Achraf Hakimi;84;RB,RWB;Normal;9K;4;4;H \ M;92;75;79;80;75;78;"181cm | 5'11""";1109;479
+Sergio Ramos;84;CB;Normal;6.9K;3;3;H \ M;61;69;73;70;83;77;"184cm | 6'0""";72;433
+Wissam Ben Yedder;84;ST,CF;Normal;6.7K;4;5;H \ L;81;84;78;88;39;68;"170cm | 5'7""";640;438
+Rafael Leão;84;LW,LM;Normal;6.7K;4;4;M \ L;91;77;73;86;27;74;"188cm | 6'2""";1420;428
+Lorenzo Pellegrini;84;CAM,CM;Normal;6.7K;3;4;H \ H;79;77;83;84;74;78;"186cm | 6'1""";273;475
+Giorgio Chiellini;84;CB;Normal;6.7K;2;3;M \ H;65;46;60;58;85;83;"187cm | 6'2""";56;397
+Lorenzo Insigne;84;LW,LM,CF;Normal;6.7K;4;4;H \ M;84;78;84;89;36;45;"163cm | 5'4""";89;416
+Youri Tielemans;84;CM,CDM;Normal;6.5K;4;5;M \ M;56;80;86;81;70;73;"176cm | 5'9""";33;446
+Dries Mertens;84;CF,CAM,ST;Normal;6.8K;4;4;H \ L;83;82;80;88;34;49;"169cm | 5'7""";280;416
+Jordan Henderson;83;CM,CDM;Normal;3.6K;3;3;H \ H;66;74;83;78;78;81;"182cm | 6'0""";-29;460
+Roberto Firmino;83;CF,ST;Normal;3.5K;5;4;H \ H;74;76;79;87;59;78;"181cm | 5'11""";210;453
+Bremer;83;CB;Normal;3.7K;2;2;H \ M;78;50;56;65;84;79;"188cm | 6'2""";408;412
+Juan Cuadrado;83;RB,RWB,RM;Normal;3.9K;5;3;H \ M;90;75;78;87;76;72;"179cm | 5'10""";744;478
+Unai Simón;83;GK;Normal;3.6K;1;3;M \ M;82;79;77;85;49;85;"190cm | 6'3""";61;457
+Jesús Navas;83;RB,RWB;Normal;3.3K;4;2;H \ M;85;68;82;81;79;57;"172cm | 5'8""";175;452
+Pau Torres;83;CB;Normal;3.6K;2;3;M \ H;73;38;67;70;84;81;"191cm | 6'3""";79;413
+Konrad Laimer;83;CDM,CM;Normal;4K;3;3;M \ H;84;68;78;79;81;78;"180cm | 5'11""";388;468
+Ousmane Dembélé;83;RW,RM;Normal;3.9K;5;5;H \ M;93;77;79;87;36;56;"178cm | 5'10""";2899;428
+Rúben Neves;83;CM,CDM;Normal;3.4K;3;4;L \ H;58;74;86;77;76;73;"180cm | 5'11""";48;444
+Presnel Kimpembe;83;CB;Normal;5.1K;2;3;M \ H;80;43;68;69;83;86;"189cm | 6'2""";1039;429
+Carlos Soler;83;s;Normal;3.7K;3;4;M \ M;80;77;83;80;71;72;"180cm | 5'11""";146;463
